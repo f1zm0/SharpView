@@ -939,7 +939,7 @@ namespace SharpView
                         {
                             IdentityFilter += $@"(objectsid={IdentityInstance})";
                         }
-                        else if (new Regex(@"^(CN|OU|DC)=").Match(IdentityInstance).Success)
+                        else if (new Regex(@"^(CN|DC|OU)=").Match(IdentityInstance).Success)
                         {
                             IdentityFilter += $@"(distinguishedname={IdentityInstance})";
                             if (args.Domain.IsNullOrEmpty() && args.SearchBase.IsNullOrEmpty())
@@ -5806,7 +5806,7 @@ namespace SharpView
                         {
                             IdentityFilter += $@"(objectsid={IdentityInstance})";
                         }
-                        else if (IdentityInstance.IsRegexMatch(@"^(CN|OU|DC)=.*"))
+                        else if (IdentityInstance.IsRegexMatch(@"^(CN|DC|OU)=.*"))
                         {
                             IdentityFilter += $@"(distinguishedname={IdentityInstance})";
                             if (args.Domain.IsNullOrEmpty() && args.SearchBase.IsNullOrEmpty())
